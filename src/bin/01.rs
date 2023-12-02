@@ -1,6 +1,6 @@
 
 fn main() {
-    // println!("part 1 answer: {}", part_1());
+    println!("part 1 answer: {}", part_1());
     println!("part 2 answer: {}", part_2_v2())
 }
 
@@ -40,6 +40,7 @@ fn str_to_num(s: &str) -> u32 {
 }
 
 // Doesn't work as doesn't match overlapping.
+#[allow(dead_code)]
 fn part_2() -> u32 {
     let re = regex::Regex::new(r"(\d|one|two|three|four|five|six|seven|eight|nine)").unwrap();
     std::fs::read_to_string("./inputs/1.txt")
