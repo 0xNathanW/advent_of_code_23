@@ -1,12 +1,5 @@
-
-fn main() {
-    println!("part 1 answer: {}", part_1());
-    println!("part 2 answer: {}", part_2_v2())
-}
-
-
-fn part_1() -> u32 {
-    std::fs::read_to_string("./inputs/1.txt")
+pub fn part_1(path: &str) -> u32 {
+    std::fs::read_to_string(path)
         .unwrap()
         .lines()
         .map(|s| {
@@ -23,7 +16,7 @@ fn part_1() -> u32 {
         }).sum()
 }
 
-fn str_to_num(s: &str) -> u32 {
+pub fn str_to_num(s: &str) -> u32 {
     match s {
         "0" | "zero" => 0,
         "1" | "one" => 1,
@@ -41,7 +34,7 @@ fn str_to_num(s: &str) -> u32 {
 
 // Doesn't work as doesn't match overlapping.
 #[allow(dead_code)]
-fn part_2() -> u32 {
+pub fn part_2_v1() -> u32 {
     let re = regex::Regex::new(r"(\d|one|two|three|four|five|six|seven|eight|nine)").unwrap();
     std::fs::read_to_string("./inputs/1.txt")
         .unwrap()
@@ -60,14 +53,14 @@ fn part_2() -> u32 {
         }).sum()
 }
 
-fn part_2_v2() -> u32 {
+pub fn part_2(path: &str) -> u32 {
     let ac = aho_corasick::AhoCorasick::new(
         &[
             "1", "2", "3", "4", "5", "6", "7", "8", "9",
             "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
         ]
     ).unwrap();
-    std::fs::read_to_string("./inputs/1.txt")
+    std::fs::read_to_string(path)
         .unwrap()
         .lines()
         .map(|s| {

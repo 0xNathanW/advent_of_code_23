@@ -1,13 +1,8 @@
 use std::collections::HashMap;
 
-
 const NUM_RED: u32   = 12;
 const NUM_GREEN: u32 = 13;
 const NUM_BLUE: u32  = 14;
-
-fn main() {
-    println!("{}", part_2());
-}
 
 fn is_possible(x: Vec<&str>) -> bool {
     let target = match x[1] {
@@ -19,8 +14,8 @@ fn is_possible(x: Vec<&str>) -> bool {
     x[0].parse::<u32>().unwrap() <= target
 }
 
-fn part_1() -> u32 {
-    std::fs::read_to_string("./inputs/02.txt")
+pub fn part_1(path: &str) -> u32 {
+    std::fs::read_to_string(path)
         .unwrap()
         .lines()
         .enumerate()
@@ -43,8 +38,8 @@ fn part_1() -> u32 {
         }).sum()
 }
 
-fn part_2() -> u32 {
-    std::fs::read_to_string("./inputs/02.txt")
+pub fn part_2(path: &str) -> u32 {
+    std::fs::read_to_string(path)
         .unwrap()
         .lines()
         .enumerate()
