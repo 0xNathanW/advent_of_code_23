@@ -45,37 +45,6 @@ pub fn part_2(path: &str) -> usize {
     lowest
 }
 
-// fn part_two(seeds: &[i64], maps: &Vec<Vec<((i64, i64), (i64, i64))>>) -> i64 {
-//     let mut min_location = std::i64::MAX;
-
-//     let seed_ranges: Vec<(i64, i64)> = seeds
-//         .chunks_exact(2)
-//         .map(|vec| (vec[0], vec[0] + vec[1] - 1))
-//         .collect();
-
-//     for (start, finish) in seed_ranges {
-//         println!("Starting range [{}, {})", start, finish);
-//         for seed in start..=finish {
-//             let mut current = seed;
-//             for map in maps.iter() {
-//                 for entry in map {
-//                     if current >= entry.1 .0 && current <= entry.1 .1 {
-//                         current = entry.0 .0 + (current - entry.1 .0);
-//                         break;
-//                     }
-//                 }
-//             }
-//             if current < min_location {
-//                 min_location = current
-//             }
-//         }
-//         println!("Finished range [{}, {})", start, finish);
-//     }
-
-//     min_location
-// }
-
-
 fn get_arr(path: &str) -> Vec<Vec<Vec<usize>>> {
     std::fs::read_to_string(path)
     .unwrap()
