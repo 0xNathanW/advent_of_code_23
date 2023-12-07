@@ -2,7 +2,7 @@
 pub fn part_1(path: &str) -> u64 {
     let arr: Vec<Vec<u64>> = std::fs::read_to_string(path)
         .unwrap()
-        .split("\n")
+        .lines()
         .into_iter()
         .map(|s| {
             s
@@ -26,7 +26,7 @@ pub fn part_1(path: &str) -> u64 {
 pub fn part_2(path: &str) -> u64 {
     let arr: Vec<u64> = std::fs::read_to_string(path)
         .unwrap()
-        .split("\n")
+        .lines()
         .into_iter()
         .map(|s| {
             let mut a = s
