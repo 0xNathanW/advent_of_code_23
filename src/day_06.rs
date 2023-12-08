@@ -1,7 +1,6 @@
 
-pub fn part_1(path: &str) -> u64 {
-    let arr: Vec<Vec<u64>> = std::fs::read_to_string(path)
-        .unwrap()
+pub fn part_1(input: &str) -> u64 {
+    let arr: Vec<Vec<u64>> = input
         .lines()
         .into_iter()
         .map(|s| {
@@ -23,9 +22,8 @@ pub fn part_1(path: &str) -> u64 {
     total
 }
 
-pub fn part_2(path: &str) -> u64 {
-    let arr: Vec<u64> = std::fs::read_to_string(path)
-        .unwrap()
+pub fn part_2(input: &str) -> u64 {
+    let arr: Vec<u64> = input
         .lines()
         .into_iter()
         .map(|s| {

@@ -1,8 +1,7 @@
 use std::cmp::Ordering;
 
-pub fn part_1(path: &str) -> u64 {
-    let content = std::fs::read_to_string(path).unwrap();
-    let mut hands: Vec<(&str, u64)> = content
+pub fn part_1(input: &str) -> u64 {
+    let mut hands: Vec<(&str, u64)> = input
         .lines()
         .into_iter()
         .map(|line| {
@@ -21,9 +20,8 @@ pub fn part_1(path: &str) -> u64 {
         .sum()
 }
 
-pub fn part_2(path: &str) -> u64 {
-    let content = std::fs::read_to_string(path).unwrap();
-    let mut hands: Vec<(&str, u64)> = content
+pub fn part_2(input: &str) -> u64 {
+    let mut hands: Vec<(&str, u64)> = input
         .lines()
         .into_iter()
         .map(|line| {
@@ -38,9 +36,7 @@ pub fn part_2(path: &str) -> u64 {
     hands
         .iter()
         .enumerate()
-        .map(|(i, hand)| {
-            println!("{}, {}", hand.0, hand.1);
-            hand.1 * (i as u64 + 1)})
+        .map(|(i, hand)| hand.1 * (i as u64 + 1))
         .sum()
 }
 

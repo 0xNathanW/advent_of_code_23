@@ -1,7 +1,8 @@
-pub fn part_1(path: &str) -> u32 {
+
+pub fn part_1(input: &str) -> u32 {
     let mut total = 0_u32;
     let mut num: (String, usize) = Default::default();
-    let content: Vec<Vec<char>> = std::fs::read_to_string(path).unwrap()
+    let content: Vec<Vec<char>> = input
         .lines()
         .into_iter()
         .map(|s| s.chars().collect())
@@ -53,8 +54,8 @@ pub fn is_adjacent_to_symbol(start_idx: usize, end_idx: usize, row_idx: usize, a
     false
 }
 
-pub fn part_2(path: &str) -> u32 {
-    let content: Vec<Vec<char>> = std::fs::read_to_string(path).unwrap()
+pub fn part_2(input: &str) -> u32 {
+    let content: Vec<Vec<char>> = input
         .lines()
         .into_iter()
         .map(|s| s.chars().collect())

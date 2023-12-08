@@ -1,6 +1,6 @@
 
-pub fn part_1(path: &str) -> usize {
-    let arr = get_arr(path);
+pub fn part_1(input: &str) -> usize {
+    let arr = get_arr(input);
     let mut lowest = usize::MAX;
     for seed in arr[0][0].iter() {
         let mut idx = *seed;
@@ -45,26 +45,28 @@ pub fn part_2(path: &str) -> usize {
     lowest
 }
 
-fn get_arr(path: &str) -> Vec<Vec<Vec<usize>>> {
-    std::fs::read_to_string(path)
-    .unwrap()
-    .split("\n\n")
-    .into_iter()
-    .map(|map|{
-        map
-            .find(":")
-            .map(|i| &map[i+1..])
-            .unwrap()
-            .split("\n")
-            .filter(|&s| !s.is_empty())
-            .into_iter()
-            .map(|row| {
-                row
-                    .trim()
-                    .split_whitespace()
-                    .into_iter()
-                    .map(|s| s.parse::<usize>().unwrap())
-                    .collect::<Vec<usize>>()
-            }).collect()
-    }).collect()
+fn get_arr(input: &str) -> Vec<Vec<Vec<usize>>> {
+    input
+        .split("\r\n\r")
+        .into_iter()
+        .map(|map|{
+            map
+                .find(":")
+                .map(|i| &map[i+1..])
+                .unwrap()
+                .split("\n")
+                .filter(|&s| {
+                    !s.is_empty()
+                })
+                .into_iter()
+                .map(|row| {
+                    row
+                        .trim()
+                        .split_whitespace()
+                        .into_iter()
+                        .map(|s| s.parse::<usize>().unwrap())
+                        .collect::<Vec<usize>>()
+                }).filter(|v| !v.is_empty())
+                .collect()
+        }).collect()
 }

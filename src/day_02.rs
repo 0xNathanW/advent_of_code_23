@@ -14,9 +14,8 @@ fn is_possible(x: Vec<&str>) -> bool {
     x[0].parse::<u32>().unwrap() <= target
 }
 
-pub fn part_1(path: &str) -> u32 {
-    std::fs::read_to_string(path)
-        .unwrap()
+pub fn part_1(input: &str) -> u32 {
+    input
         .lines()
         .enumerate()
         .map(|(i, s)| {
@@ -38,9 +37,8 @@ pub fn part_1(path: &str) -> u32 {
         }).sum()
 }
 
-pub fn part_2(path: &str) -> u32 {
-    std::fs::read_to_string(path)
-        .unwrap()
+pub fn part_2(input: &str) -> u32 {
+    input
         .lines()
         .enumerate()
         .map(|(i, s)| {

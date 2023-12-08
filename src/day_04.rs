@@ -1,8 +1,7 @@
 use std::collections::HashSet;
 
-pub fn part_1(path: &str) -> u32 {
-    std::fs::read_to_string(path)
-        .unwrap()
+pub fn part_1(input: &str) -> u32 {
+    input
         .lines()
         .into_iter()
         .map(|line|{
@@ -32,10 +31,9 @@ pub fn part_1(path: &str) -> u32 {
         }).sum()
 }
 
-pub fn part_2(path: &str) -> usize {
+pub fn part_2(input: &str) -> usize {
     let mut copies: Vec<usize> = vec![];
-    std::fs::read_to_string(path)
-        .unwrap()
+    input
         .lines()
         .into_iter()
         .enumerate()

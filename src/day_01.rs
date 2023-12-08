@@ -1,6 +1,6 @@
-pub fn part_1(path: &str) -> u32 {
-    std::fs::read_to_string(path)
-        .unwrap()
+
+pub fn part_1(input: &str) -> u32 {
+    input
         .lines()
         .map(|s| {
             let (mut first, mut last) = (None, None);
@@ -34,10 +34,9 @@ pub fn str_to_num(s: &str) -> u32 {
 
 // Doesn't work as doesn't match overlapping.
 #[allow(dead_code)]
-pub fn part_2_v1() -> u32 {
+pub fn part_2_v1(input: &str) -> u32 {
     let re = regex::Regex::new(r"(\d|one|two|three|four|five|six|seven|eight|nine)").unwrap();
-    std::fs::read_to_string("./inputs/1.txt")
-        .unwrap()
+    input
         .lines()
         .map(|s| {
             dbg!(s);
@@ -53,15 +52,14 @@ pub fn part_2_v1() -> u32 {
         }).sum()
 }
 
-pub fn part_2(path: &str) -> u32 {
+pub fn part_2(input: &str) -> u32 {
     let ac = aho_corasick::AhoCorasick::new(
         &[
             "1", "2", "3", "4", "5", "6", "7", "8", "9",
             "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
         ]
     ).unwrap();
-    std::fs::read_to_string(path)
-        .unwrap()
+    input
         .lines()
         .map(|s| {
             let mut matches = ac.find_overlapping_iter(s);
