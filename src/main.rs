@@ -1,6 +1,6 @@
 
 fn main() {
-    let a = day_06::part_2(&get_input(6));
+    let a = day_09::part_2(&get_input(9));
     dbg!(a);
 }
 
@@ -12,6 +12,7 @@ pub mod day_05;
 pub mod day_06;
 pub mod day_07;
 pub mod day_08;
+pub mod day_09;
 
 fn get_input(day: u32) -> String{
     std::fs::read_to_string(&format!("./inputs/0{}.txt", day)).unwrap()
@@ -24,7 +25,7 @@ mod tests {
     #[test]
     fn test_current() {
         let input = std::fs::read_to_string("./inputs/test.txt").unwrap();
-        let answer = day_08::part_2(&input);
+        let answer = day_09::part_2(&input);
         dbg!(answer);
     }
 
@@ -78,6 +79,12 @@ mod tests {
             let input = &get_input(8);
             assert_eq!(day_08::part_1(input), 15871);
             assert_eq!(day_08::part_2(input), 11283670395017);
+        }
+        // Day 9.
+        {
+            let input = &get_input(9);
+            assert_eq!(day_09::part_1(input), 1641934234);
+            assert_eq!(day_09::part_2(input), 975);
         }
     }
 }
