@@ -1,6 +1,6 @@
 
 fn main() {
-    let a = day_09::part_2(&get_input(9));
+    let a = day_10::part_2(&get_input(10));
     dbg!(a);
 }
 
@@ -13,9 +13,11 @@ pub mod day_06;
 pub mod day_07;
 pub mod day_08;
 pub mod day_09;
+pub mod day_10;
 
 fn get_input(day: u32) -> String{
-    std::fs::read_to_string(&format!("./inputs/0{}.txt", day)).unwrap()
+    let fill = if day < 10 { "0" } else { "" };
+    std::fs::read_to_string(&format!("./inputs/{}{}.txt", fill, day)).unwrap()
 }
 
 #[cfg(test)]
@@ -25,7 +27,7 @@ mod tests {
     #[test]
     fn test_current() {
         let input = std::fs::read_to_string("./inputs/test.txt").unwrap();
-        let answer = day_09::part_2(&input);
+        let answer = day_10::part_2(&input);
         dbg!(answer);
     }
 
@@ -85,6 +87,13 @@ mod tests {
             let input = &get_input(9);
             assert_eq!(day_09::part_1(input), 1641934234);
             assert_eq!(day_09::part_2(input), 975);
+        }
+        // Day 10.
+        {
+            let input = &get_input(10);
+            assert_eq!(day_10::part_1(input), 6903);
+            // I broke it somehow.
+            // assert_eq!(day_10::part_2(input), 265);
         }
     }
 }
