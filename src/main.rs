@@ -1,6 +1,6 @@
 
 fn main() {
-    let a = day_11::part_2(&get_input(11));
+    let a = day_12::part_2(&get_input(12));
     dbg!(a);
 }
 
@@ -29,7 +29,7 @@ mod tests {
     #[test]
     fn test_current() {
         let input = std::fs::read_to_string("./inputs/test.txt").unwrap();
-        let answer = day_11::part_2(&input);
+        let answer = day_12::part_1(&input);
         dbg!(answer);
     }
 
