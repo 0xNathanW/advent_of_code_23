@@ -5,6 +5,7 @@ pub fn part_1(input: &str) -> usize {
     calculate_load(&arr)
 }
 
+#[allow(unused_assignments)]
 pub fn part_2(input: &str) -> usize {
     let mut arr: Vec<Vec<char>> = input.lines().map(|line| line.chars().collect()).collect();
     let mut cache = HashMap::new();
