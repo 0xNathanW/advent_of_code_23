@@ -1,5 +1,5 @@
 fn main() {
-    let a = day_18::part_2(&mut get_input(18));
+    let a = day_19::part_2(&mut get_input(19));
     dbg!(a);
 }
 
@@ -21,6 +21,7 @@ pub mod day_15;
 pub mod day_16;
 pub mod day_17;
 pub mod day_18;
+pub mod day_19;
 
 fn get_input(day: u32) -> String {
     let fill = if day < 10 { "0" } else { "" };
@@ -34,7 +35,7 @@ mod tests {
     #[test]
     fn test_current() {
         let input = std::fs::read_to_string("./inputs/test.txt").unwrap();
-        let answer = day_18::part_2(&input);
+        let answer = day_19::part_2(&input);
         dbg!(answer);
     }
 
